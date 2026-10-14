@@ -84,3 +84,13 @@ The Flask application is deployed using Render.
 
 ## Author
 Developed as a machine learning and web development project.
+
+## Model Evaluation
+
+The Random Forest classifier achieved **77% accuracy** on the current test split of 60 records.
+
+The evaluation includes precision, recall, F1-score, a classification report, and a confusion matrix.
+
+[Read the full Model Evaluation Report](MODEL_EVALUATION.md)
+
+**Disclaimer:** This project is an educational prototype and is not clinically validated for medical diagnosis.
