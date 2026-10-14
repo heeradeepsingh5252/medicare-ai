@@ -3,6 +3,10 @@
 ## Overview
 MediCare AI is a machine learning-based healthcare prediction project that analyzes user-provided symptoms to predict a possible disease and provide relevant medicine recommendations. It combines a web interface with a Flask backend and machine learning models.
 
+## Application Preview
+
+![MediCare AI Homepage](medicare-homepage.png)
+
 **Disclaimer:** This project is for educational purposes only and is not a substitute for professional medical advice or diagnosis.
 
 ## Features
