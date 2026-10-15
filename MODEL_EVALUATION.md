@@ -49,3 +49,14 @@ The precision for the Positive class was 0.76, meaning approximately 76% of the 
 - These results do not establish clinical reliability or medical diagnostic accuracy.
 
 **Disclaimer:** MediCare AI is an educational prototype and is not intended to replace professional medical advice, diagnosis, or treatment.
+
+## 6. Cross-Validation
+
+The model was evaluated using 5-fold stratified cross-validation on the training data.
+
+- **Fold accuracy scores:** 0.667, 0.708, 0.729, 0.646, 0.688
+- **Mean cross-validation accuracy:** 0.688 (68.8%)
+- **Standard deviation:** 0.029
+- **Held-out test accuracy:** 0.800 (80.0%)
+
+Cross-validation provides a more robust estimate of model consistency across different training-data folds. Results should be interpreted cautiously because the dataset is small and the model has not been clinically validated.

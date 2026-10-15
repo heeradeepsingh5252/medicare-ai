@@ -4,7 +4,7 @@ from pathlib import Path
 import joblib
 import pandas as pd
 
-from sklearn.model_selection import train_test_split
+from sklearn.model_selection import train_test_split, StratifiedKFold, cross_val_score
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
@@ -72,7 +72,21 @@ X_train, X_test, y_train, y_test = train_test_split(
     random_state=42,
     stratify=y,
 )
+# Cross-validation on the training data only
+cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
 
+cv_scores = cross_val_score(
+    model,
+    X_train,
+    y_train,
+    cv=cv,
+    scoring="accuracy",
+)
+
+print("\n5-Fold Cross-Validation Results:")
+print(f"Fold scores: {cv_scores.round(3)}")
+print(f"Mean accuracy: {cv_scores.mean():.3f}")
+print(f"Standard deviation: {cv_scores.std():.3f}")
 model.fit(X_train, y_train)
 predictions = model.predict(X_test)
 
