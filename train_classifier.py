@@ -32,6 +32,8 @@ df = df.dropna(subset=[target])
 # Separate features and target
 X = df.drop(columns=[target])
 y = df[target].astype(str).str.strip()
+X = df.drop(columns=[target, "risk_level"])
+print("Feature columns:", X.columns.tolist())
 
 # Identify numeric and categorical columns
 numeric_columns = X.select_dtypes(include="number").columns.tolist()
@@ -78,7 +80,10 @@ print("Model training completed.")
 print(f"Training rows: {len(X_train)}")
 print(f"Testing rows: {len(X_test)}")
 print(f"Accuracy: {accuracy_score(y_test, predictions):.3f}")
-
+from sklearn.metrics import precision_score, recall_score, f1_score
+print(f"Precision: {precision_score(y_test, predictions, pos_label='Positive', zero_division=0):.3f}")
+print(f"Recall: {recall_score(y_test, predictions, pos_label='Positive', zero_division=0):.3f}")
+print(f"F1-score: {f1_score(y_test, predictions, pos_label='Positive', zero_division=0):.3f}")
 print("\nClassification report:")
 print(classification_report(y_test, predictions, zero_division=0))
 
